@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5001'
+const API_URL = 'https://ic-fault-detector-api.onrender.com'
 
 const defaultValues = {
   voltage: '',
