@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+*.pkl
+frontend/node_modules/
+.env
+.vscode/

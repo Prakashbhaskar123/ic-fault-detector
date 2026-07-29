@@ -1,0 +1,21 @@
+{
+  "accuracy": 1.0,
+  "features": [
+    "voltage",
+    "current",
+    "frequency",
+    "timing_delay",
+    "signal_strength",
+    "temperature"
+  ],
+  "feature_importance": {
+    "voltage": 0.17571482763725757,
+    "current": 0.23476111001085573,
+    "frequency": 0.002061767175387219,
+    "timing_delay": 0.35618689676929893,
+    "signal_strength": 0.15342052148418245,
+    "temperature": 0.0778548769230182
+  },
+  "training_samples": 800,
+  "testing_samples": 200
+}
