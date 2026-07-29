@@ -265,7 +265,12 @@ def test_prediction():
     })
 
 if __name__ == '__main__':
+    import os
+    # Grab the port Render assigns, or default to 5001 locally
+    port = int(os.environ.get("PORT", 5001))
+    
     print("\n🚀 Starting IC Fault Detector API...")
-    print("📡 API running at: http://localhost:5001")
-    print("📡 Test at: http://localhost:5001/test")
-    app.run(debug=True, port=5001)
+    print(f"📡 API running on port: {port}")
+    
+    # host="0.0.0.0" is the key that lets Render connect!
+    app.run(host="0.0.0.0", port=port)
