@@ -103,8 +103,19 @@ function Analyzer({ onResult, onBack }) {
 
       onResult(res.data, values)
 
-    } catch (err) {
-      setError('Cannot connect to AI server. Make sure Flask is running!')
+    }  catch (err) {
+      console.error("Full Error:", err)
+      
+      if (err.response) {
+        // The server woke up and responded, but with an error (e.g., 500)
+        setError(`Server Error: ${err.response.data.error || err.message}`)
+      } else if (err.request) {
+        // The request was sent, but no response was received (Timeout/CORS)
+        setError('No response from AI Server. It might still be waking up!')
+      } else {
+        // Something else went wrong
+        setError(`Request Error: ${err.message}`)
+      }
     }
 
     setLoading(false)
