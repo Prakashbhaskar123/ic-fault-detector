@@ -6,8 +6,7 @@ import json
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 # Load trained model and scaler
 print("🔄 Loading AI model...")
 with open('model.pkl', 'rb') as f:
