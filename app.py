@@ -262,7 +262,25 @@ def test_prediction():
         'prediction': 'FAULTY' if prediction == 1 else 'NORMAL',
         'confidence': f"{max(probability)*100:.2f}%"
     })
+import threading
+import time
+import urllib.request
 
+def keep_alive():
+    while True:
+        time.sleep(840)  # every 14 minutes
+        try:
+            urllib.request.urlopen(
+                'https://ic-fault-detector.onrender.com'
+            )
+            print("✅ Keep alive ping sent!")
+        except:
+            pass
+
+# Start keep alive thread
+t = threading.Thread(target=keep_alive)
+t.daemon = True
+t.start()
 if __name__ == '__main__':
     import os
     # Grab the port Render assigns, or default to 5001 locally
